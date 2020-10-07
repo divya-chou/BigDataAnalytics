@@ -11,13 +11,16 @@ from datetime import datetime
 import pandas as pd
 from pyspark.sql import SparkSession
 
-sc = SparkSession.builder.master("local[4]").appName("read_csv").getOrCreate()
+sc = SparkSession.builder.master("local[*]").appName("read_csv").getOrCreate()
+
+sc.sparkContext
+
 
 t1 = datetime.now()
-read_spark = sc.read.csv('D:\Self Projects\MySkillMantra\Big Data Analytics\india-news-headlines.csv')
+read_spark = sc.read.csv('D:\Self Projects\MySkillMantra\Big Data Analytics\Codes and Data\india-news-headlines.csv')
 
 t2 = datetime.now()
-read_pandas = pd.read_csv('D:\Self Projects\MySkillMantra\Big Data Analytics\india-news-headlines.csv')
+read_pandas = pd.read_csv('D:\Self Projects\MySkillMantra\Big Data Analytics\Codes and Data\india-news-headlines.csv')
 
 t3 = datetime.now()
 
